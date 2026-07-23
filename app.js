@@ -23,7 +23,7 @@ const etfLogos = [
 ];
 const etfBar = document.getElementById('etfBar');
 if (etfBar) etfBar.innerHTML = etfLogos.map(([t,n]) =>
-  `<div class="etf-cell"><span class="etf-tkr">${t}</span><span class="etf-nm">${n}</span></div>`).join('');
+  `<div class="etf-cell"><span class="etf-mono">${t.slice(0,2)}</span><span class="etf-txt"><span class="etf-tkr">${t}</span><span class="etf-nm">${n}</span></span></div>`).join('');
 
 // ---- Live distribution feed ----
 const holders = ['A. Rivera','M. Chen','S. Okafor','L. Novak','K. Haddad','J. Meyer','P. Silva','T. Weber','R. Kaur','D. Ford'];
