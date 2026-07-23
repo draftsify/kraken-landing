@@ -108,15 +108,3 @@ if (ledger) ledger.innerHTML = ledgerData.map(([n,s,d,c], i) => {
   const pos = c.trim().startsWith('↑');
   return `<div class="ledger-row"><span class="led-rank">${i + 1}</span><div class="led-who"><span class="led-av">${ledgerInitials(n)}</span><span class="led-name">${n}</span></div><span class="led-num">${s}</span><span class="led-num">${d}</span><span class="led-chg ${pos ? 'pos' : 'neg'}">${c}</span></div>`;
 }).join('');
-
-// ===== Testimonials marquee =====
-const quotes = [
-  ['Holders finally stopped asking when they get paid. Kraken just does it, every cycle.','Liam Carter','Product Lead'],
-  ["It's set-and-forget. We connected the account and the 3-minute clock has never missed.",'Noah Williams','Founder'],
-  ['The ledger reconciles itself. Our finance team loves the timestamped history.','Sara Ahmed','Operations'],
-  ['Clean feed, reliable payouts. We actually trust what we see now.','Ethan Brooks','Analyst'],
-  ['Lightweight and fast. It slotted right into how we manage holders.','Daniel Park','CTO'],
-];
-const card = ([q,n,r]) => `<div class="tcard"><p>“${q}”</p><div class="tperson"><span class="tav"></span><div><div class="tname">${n}</div><div class="trole">${r}</div></div></div></div>`;
-const track = document.getElementById('track');
-if (track) track.innerHTML = (quotes.map(card).join('')).repeat(2);
