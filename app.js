@@ -102,22 +102,12 @@ const ledgerData = [
   ['Doraxis','8.3K','$29.4K','↓ 3.8%'],
   ['Synqra','7.8K','$26.1K','↑ 11.6%'],
 ];
+const ledgerInitials = n => n.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
 const ledger = document.getElementById('ledger');
-if (ledger) ledger.innerHTML = ledgerData.map(([n,s,d,c]) =>
-  `<div class="ledger-row"><div class="led-who"><span class="led-av"></span>${n}</div><span class="led-num">${s}</span><span class="led-num">${d}</span><span class="led-up">${c}</span></div>`).join('');
-
-// ===== ETF coverage grid =====
-const etfs = [
-  ['SPY','S&P 500',1],['VOO','Vanguard 500',1],['QQQ','Nasdaq 100',1],['VTI','Total Market',1],
-  ['SCHD','Dividend',1],['JEPI','Equity Income',1],['ARKK','Innovation',1],['IWM','Russell 2000',1],
-  ['XLK','Technology',1],['VYM','High Dividend',1],['GLD','Gold',0],['BND','Bonds',0],
-];
-const grid = document.getElementById('etfGrid');
-if (grid) {
-  grid.innerHTML = etfs.map(([s,n,live]) =>
-    `<div class="etf rev ${live ? '' : 'soon'}"><div class="etf-top"><div class="etf-mark">${s.slice(0,3)}</div><span class="etf-status">${live ? 'Live' : 'Coming soon'}</span></div><h3>${s}</h3><p>${n}</p></div>`).join('');
-  grid.querySelectorAll('.rev').forEach((el, i) => { el.style.setProperty('--i', i % 4); revIO.observe(el); });
-}
+if (ledger) ledger.innerHTML = ledgerData.map(([n,s,d,c], i) => {
+  const pos = c.trim().startsWith('↑');
+  return `<div class="ledger-row"><span class="led-rank">${i + 1}</span><div class="led-who"><span class="led-av">${ledgerInitials(n)}</span><span class="led-name">${n}</span></div><span class="led-num">${s}</span><span class="led-num">${d}</span><span class="led-chg ${pos ? 'pos' : 'neg'}">${c}</span></div>`;
+}).join('');
 
 // ===== Testimonials marquee =====
 const quotes = [
