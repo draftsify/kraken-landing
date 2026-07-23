@@ -17,9 +17,9 @@ const marks = {
   e: '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="2"/></svg>',
   f: '<svg viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 0 1 18 0M3 12a9 9 0 0 0 18 0" stroke="currentColor" stroke-width="2"/></svg>',
 };
-const brands = [['Arcflow','a'],['Crestlane','b'],['Veltro','c'],['Nimbly','d'],['Doraxis','e'],['Synqra','f']];
-const logos = document.getElementById('logos');
-if (logos) logos.innerHTML = brands.map(([n,k]) => `<div class="logo-lockup">${marks[k]}<span>${n}</span></div>`).join('');
+const etfLogos = [['SPY','a'],['QQQ','c'],['VOO','e'],['VTI','d'],['SCHD','b'],['ARKK','f']];
+const etfBar = document.getElementById('etfBar');
+if (etfBar) etfBar.innerHTML = etfLogos.map(([t,k]) => `<div class="etf-cell">${marks[k]}<span>${t}</span></div>`).join('');
 
 // ---- Live distribution feed ----
 const holders = ['A. Rivera','M. Chen','S. Okafor','L. Novak','K. Haddad','J. Meyer','P. Silva','T. Weber','R. Kaur','D. Ford'];

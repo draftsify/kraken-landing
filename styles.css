@@ -74,10 +74,14 @@ main,.footer,.nav{position:relative;z-index:1}
 /* Trust logos */
 .trust{margin-top:64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0;display:flex;flex-direction:column;gap:22px;align-items:center}
 .trust-label{color:var(--muted);font-size:13px}
-.logo-row{display:flex;gap:44px;flex-wrap:wrap;justify-content:center;align-items:center;opacity:.7}
-.logo-lockup{display:flex;align-items:center;gap:8px;color:#b9b9be}
-.logo-lockup svg{width:20px;height:20px}
-.logo-lockup span{font-family:"Space Grotesk";font-weight:600;font-size:14px;letter-spacing:-.01em}
+.etf-bar{display:grid;grid-template-columns:repeat(6,1fr);width:100%;border-top:1px solid var(--line)}
+.etf-cell{display:flex;align-items:center;justify-content:center;gap:8px;height:78px;border-left:1px solid var(--line);color:#b3b3b8;transition:.2s}
+.etf-cell:first-child{border-left:none}
+.etf-cell:hover{color:#fff;background:var(--panel)}
+.etf-cell svg{width:17px;height:17px}
+.etf-cell span{font-family:"Space Grotesk";font-weight:700;font-size:16px;letter-spacing:.03em}
+@media(max-width:760px){.etf-bar{grid-template-columns:repeat(3,1fr)}.etf-cell:nth-child(4){border-left:none}.etf-cell:nth-child(n+4){border-top:1px solid var(--line)}}
+@media(max-width:420px){.etf-bar{grid-template-columns:repeat(2,1fr)}.etf-cell:nth-child(odd){border-left:none}.etf-cell:nth-child(n+3){border-top:1px solid var(--line)}}
 
 /* Tags / heads */
 .tag{display:inline-block;padding:4px 12px;border:1px solid var(--line-2);border-radius:100px;font-size:12px;color:var(--muted);background:var(--panel);margin-bottom:14px}
